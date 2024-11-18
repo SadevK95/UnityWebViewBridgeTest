@@ -8,7 +8,11 @@
         // Function to send a message to Unity WebView
         function sendMessageToUnity() {
             // Sends a message "ButtonClicked" to Unity
-            window.location = 'unity:ButtonClicked';
+            if (window.Unity) {
+                window.Unity.call('ButtonClicked');
+            } else {
+                console.log('Unity object is not available');
+            }
         }
     </script>
 </head>
