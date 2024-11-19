@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity WebView Test</title>
-    <script type="text/javascript">
-        // Function to send a message to Unity WebView
-        function sendMessageToUnity() {
-            // Sends a message "ButtonClicked" to Unity
+    <title>Unity Communication</title>
+</head>
+<body>
+    <h1>Unity WebView Communication</h1>
+    <button onclick="sendMessageToUnity('loadScene1')">Load Scene 1</button>
+    <button onclick="sendMessageToUnity('displayMessage')">Display Message</button>
+
+    <script>
+        // JavaScript function to send a message to Unity
+        function sendMessageToUnity(message) {
             if (window.Unity) {
-                window.Unity.call('ButtonClicked');
+                Unity.call(message);
             } else {
-                console.log('Unity object is not available');
+                console.log("Unity object not available");
             }
         }
     </script>
-</head>
-<body>
-    <h1>Unity WebView Message Test</h1>
-    <button onclick="sendMessageToUnity()">Click Me to Send Message to Unity</button>
 </body>
 </html>
